@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Payment {
+		
 		//variables
 		@FindBy(xpath = "//input[@id='given-name']")
 		private WebElement firstname;
@@ -26,35 +27,37 @@ public class Payment {
 		private WebElement successmessage;
 	
 	
-	
-	
-	
 		//constructor
 		public Payment(WebDriver driver) {
 			PageFactory.initElements(driver, this);
 		}
 		
 		//methods
-		public void enterfirstname()
+		public void enterfirstname(String name)
 		{
-			firstname.sendKeys("TOM");
+			firstname.sendKeys(name);
 		}
-		public void enterlastname()
+		
+		public void enterlastname(String last_name)
 		{
-			lastname.sendKeys("HENRY");
+			lastname.sendKeys(last_name);
 		}
-		public void enternumber()
+		
+		public void enternumber(String phonenumber)
 		{
-			phone.sendKeys("1234567890");
+			phone.sendKeys(phonenumber);
 		}
-		public void enteremail()
+		
+		public void enteremail(String email_address)
 		{
-			email.sendKeys("abc@xyz.com");
+			email.sendKeys(email_address);
 		}
+		
 		public void booknow()
 		{
 			booknow.click();
 		}
+		
 		public void verifysuccessmessage()
 		{
 			assert successmessage.isDisplayed();

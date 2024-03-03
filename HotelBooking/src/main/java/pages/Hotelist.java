@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Hotelist {
-	    //variables
+	    
+		//variables
 		@FindBy(xpath = "//div[@id='HotelListId']")
 		private WebElement verifylist;
 		
@@ -16,23 +17,42 @@ public class Hotelist {
 		@FindBy(xpath = "//div[contains(text(),'1 KING BED')]/../../following-sibling::div//span[text()='Book now']")
 		private WebElement book1kingbed;
 		
+		@FindBy(xpath = "//label[contains(@for,'LOWAVAILABILTY')]")
+		private WebElement lowavailabiltyfilter;
+		
+		@FindBy(xpath = "")
+		private WebElement verifyfilterapplied;
+		
 		
 		//constructor
 		public Hotelist(WebDriver driver) {
 			PageFactory.initElements(driver, this);
 		}
+		
 		//methods
 		public void verifyhotellist()
 		{
 			assert verifylist.isDisplayed();
 		}
+		
 		public void firsthoteldetail()
 		{
 			firsthoteldetails.click();
 		}
+		
 		public void book1kingbed()
 		{
 			book1kingbed.click();
+		}
+		
+		public void lowavailabilty()
+		{
+			lowavailabiltyfilter.click();
+		}
+		
+		public void verifyfilterapplied()
+		{
+			
 		}
 }
 

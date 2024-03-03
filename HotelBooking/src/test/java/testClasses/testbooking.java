@@ -27,49 +27,49 @@ public abstract class testbooking extends baseclass
 			list = new Hotelist(driver);
 			checkout = new Payment(driver);
 		}
+		
 		@BeforeMethod
 		public void login()
 		{
-			home.logintoaccount();
+			home.logintoaccount("abc@xyz.com");
 		}
+		
 		@Test
-		public void searchlocation()
+		public void searchlocationandbook()
 		{
-			home.searchlocation();
+			home.searchlocation("Barcelona");
 			home.dateopener();
-			home.verifymonth();
+			home.verifymonth("June");
 			home.durationandselect();
 			list.verifyhotellist();
 			list.firsthoteldetail();
 			list.book1kingbed();
-			checkout.enterfirstname();
-			checkout.enterlastname();
-			checkout.enteremail();
-			checkout.enternumber();
+			checkout.enterfirstname("TOM");
+			checkout.enterlastname("HENRY");
+			checkout.enteremail("abc@xyz.com");
+			checkout.enternumber("1234567890");
 			checkout.booknow();
 			checkout.verifysuccessmessage();
-			
-			
 		}
+		
 		@Test
 		public void lowavailabilty()
 		{
-			home.searchlocation();
+			home.searchlocation("Barcelona");
 			home.dateopener();
-			home.verifymonth();
+			home.verifymonth("July");
 			home.durationandselect();
 			list.verifyhotellist();
-			list.firsthoteldetail();
+			list.lowavailabilty();
+			list.verifyfilterapplied();
 		}
-		
 		
 		@AfterMethod
 		public abstract void logout();
 		
 		@AfterClass
-		public void closebrowser() {
-			
+		public void closebrowser() 
+		{	
 			closeBrowser();
-
 		}
 	}

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import base.baseclass;
 
 public class Homepage extends baseclass{
+	
 	//variables
 	@FindBy(xpath = "//span[contains(@class,'DestinationSearchOpener')]")
 	private WebElement searchbox;
@@ -49,55 +50,48 @@ public class Homepage extends baseclass{
 	private WebElement popuploginbutton;
 	
 	
-	
-			
-	
 	//constructor
-	public Homepage() {
+	public Homepage() 
+	{
 		PageFactory.initElements(driver, this);
 	}
-	//methods
 	
-	public void searchlocation()
+	//methods
+	public void searchlocation(String location)
 	{
 		searchbox.click();
-		inputlocation.sendKeys("Barcelona");
+		inputlocation.sendKeys(location);
 		clicksuggestion.click();
 		
 	}
+	
 	public void dateopener()
 	{
 		datepickeropener.click();
 	}
-	public void verifymonth()
+	
+	public void verifymonth(String exp_month)
 	{
-		String month = verifymonth.getText();
-		for(int i=0;i<6;i++)
+		String found_month = verifymonth.getText();
+		while(!found_month.equals(exp_month))
 		{
-		try 
-		{
-			assert month.equals("July");
-			if(month.equals("July"))
-				break;
-		} finally 
-		{
-			nextmonth.click();		
-		}
+			nextmonth.click();
 		}
 	}
+	
 	public void durationandselect()
 	{
 		fromdate.click();
 		todate.click();
 		searchhotel.click();
 	}
-	public void logintoaccount()
+	
+	public void logintoaccount(String email)
 	{
 		loginbutton.click();
-		emaillogin.sendKeys("abc@xyz.com");
+		emaillogin.sendKeys(email);
 		loginpassword.sendKeys("ABCD1234");
 		popuploginbutton.click();	
 	}
-	
 	
 }
