@@ -1,10 +1,7 @@
 package pages;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import base.baseclass;
 
 public class Homepage extends baseclass{
@@ -13,13 +10,13 @@ public class Homepage extends baseclass{
 	@FindBy(xpath = "//span[contains(@class,'DestinationSearchOpener')]")
 	private WebElement searchbox;
 	
-	@FindBy(xpath = "//input[@id='DestinationSearchInput']")
+	@FindBy(id = "DestinationSearchInput")
 	private WebElement inputlocation;
 	
 	@FindBy(xpath = "(//li[@data-test='DestinationList_suggestionItem'][1])[1]")
 	private WebElement clicksuggestion;
 	
-	@FindBy(xpath = "//div[@id='DatePickerOpener']")
+	@FindBy(id = "DatePickerOpener")
 	private WebElement datepickeropener;
 	
 	@FindBy(xpath = "(//div[@class='Month_title__m8iWe'])[1]")
@@ -32,18 +29,18 @@ public class Homepage extends baseclass{
 	private WebElement fromdate;
 	
 	@FindBy(xpath = "(//div[text()='1'])[2]")
-	private WebElement todate;
+	private WebElement enddate;
 	
-	@FindBy(xpath = "//button[@id='SearchHotelsButton']")
+	@FindBy(id = "SearchHotelsButton")
 	private WebElement searchhotel;
 	
 	@FindBy(xpath = "(//span[text()='Log in'])[1]")
 	private WebElement loginbutton;
 	
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(id = "email")
 	private WebElement emaillogin;
 	
-	@FindBy(xpath = "//input[@id='password']")
+	@FindBy(id = "password")
 	private WebElement loginpassword;
 	
 	@FindBy(xpath = "(//span[text()='Log in'])[4]")
@@ -57,7 +54,7 @@ public class Homepage extends baseclass{
 	}
 	
 	//methods
-	public void searchlocation(String location)
+	public void searchLocation(String location)
 	{
 		searchbox.click();
 		inputlocation.sendKeys(location);
@@ -65,12 +62,12 @@ public class Homepage extends baseclass{
 		
 	}
 	
-	public void dateopener()
+	public void openDatePicker()
 	{
 		datepickeropener.click();
 	}
 	
-	public void verifymonth(String exp_month)
+	public void verifyCalenderMonth(String exp_month)
 	{
 		String found_month = verifymonth.getText();
 		while(!found_month.equals(exp_month))
@@ -79,19 +76,18 @@ public class Homepage extends baseclass{
 		}
 	}
 	
-	public void durationandselect()
+	public void selectTravelDuration()
 	{
 		fromdate.click();
-		todate.click();
+		enddate.click();
 		searchhotel.click();
 	}
 	
-	public void logintoaccount(String email)
+	public void loginToAccount(String email)
 	{
 		loginbutton.click();
 		emaillogin.sendKeys(email);
 		loginpassword.sendKeys("ABCD1234");
 		popuploginbutton.click();	
 	}
-	
 }

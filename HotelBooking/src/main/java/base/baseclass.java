@@ -1,7 +1,4 @@
 package base;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,7 +7,7 @@ public class baseclass {
 protected static WebDriver driver;
 	
 
-	public void launchBrowser() throws IOException {
+	public void launchBrowser() {
 		
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions option = new ChromeOptions();

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Hotelist {
 	    
 		//variables
-		@FindBy(xpath = "//div[@id='HotelListId']")
+		@FindBy(id = "HotelListId")
 		private WebElement verifylist;
 		
 		@FindBy(xpath = "(//button[contains(@id,'HotelDetailsButton')])[1]")
@@ -30,27 +30,27 @@ public class Hotelist {
 		}
 		
 		//methods
-		public void verifyhotellist()
+		public void verifyHotelList()
 		{
 			assert verifylist.isDisplayed();
 		}
 		
-		public void firsthoteldetail()
+		public void checkFirstHotelDetail()
 		{
 			firsthoteldetails.click();
 		}
 		
-		public void book1kingbed()
+		public void bookOneKingBed()
 		{
 			book1kingbed.click();
 		}
 		
-		public void lowavailabilty()
+		public void lowAvailabilty()
 		{
 			lowavailabiltyfilter.click();
 		}
 		
-		public void verifyfilterapplied()
+		public void verifyFilterApplied()
 		{
 			
 		}

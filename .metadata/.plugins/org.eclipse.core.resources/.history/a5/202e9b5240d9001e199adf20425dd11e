@@ -1,0 +1,75 @@
+package testClasses;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import base.baseclass;
+import pages.Homepage;
+import pages.Hotelist;
+import pages.Payment;
+
+public abstract class testbooking extends baseclass
+	{
+		Homepage home;
+		Hotelist list;
+		Payment checkout;
+		
+		@BeforeClass
+		public void launchhrs() throws IOException {
+			launchBrowser();
+			home = new Homepage();
+			list = new Hotelist(driver);
+			checkout = new Payment(driver);
+		}
+		
+		@BeforeMethod
+		public void Login()
+		{
+			home.logintoaccount("abc@xyz.com");
+		}
+		
+		@Test
+		public void searchLocationAndBook()
+		{
+			home.searchLocation("Barcelona"); // the user searches for the destination 
+			home.datePickerOpener(); 
+			home.verifyCalenderMonth("June");
+			home.durationandselect();
+			list.verifyhotellist();
+			list.firsthoteldetail();
+			list.book1kingbed();
+			checkout.enterfirstname("TOM");
+			checkout.enterlastname("HENRY");
+			checkout.enteremail("abc@xyz.com");
+			checkout.enternumber("1234567890");
+			checkout.booknow();
+			checkout.verifysuccessmessage();
+		}
+		
+		@Test
+		public void lowAvailabilty()
+		{
+			home.searchLocation("Barcelona");
+			home.datePickerOpener();
+			home.verifyCalenderMonth("July");
+			home.durationandselect();
+			list.verifyhotellist();
+			list.lowavailabilty();
+			list.verifyfilterapplied();
+		}
+		
+		@AfterMethod
+		public abstract void logOut();
+		
+		@AfterClass
+		public void closeBrowser() 
+		{	
+			closeBrowser();
+		}
+	}

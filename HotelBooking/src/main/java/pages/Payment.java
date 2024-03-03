@@ -8,16 +8,16 @@ import org.openqa.selenium.support.PageFactory;
 public class Payment {
 		
 		//variables
-		@FindBy(xpath = "//input[@id='given-name']")
+		@FindBy(id = "given-name")
 		private WebElement firstname;
 		
-		@FindBy(xpath = "//input[@id='family-name']")
+		@FindBy(id = "family-name")
 		private WebElement lastname;
 		
-		@FindBy(xpath = "//input[@id='phone']")
+		@FindBy(id = "phone")
 		private WebElement phone;
 		
-		@FindBy(xpath = "//input[@id='email']")
+		@FindBy(id = "email")
 		private WebElement email;
 		
 		@FindBy(xpath = "//span[text()='Book now']/../")
@@ -33,32 +33,32 @@ public class Payment {
 		}
 		
 		//methods
-		public void enterfirstname(String name)
+		public void enterFirstName(String name)
 		{
 			firstname.sendKeys(name);
 		}
 		
-		public void enterlastname(String last_name)
+		public void enterLastName(String last_name)
 		{
 			lastname.sendKeys(last_name);
 		}
 		
-		public void enternumber(String phonenumber)
+		public void enterNumber(String phonenumber)
 		{
 			phone.sendKeys(phonenumber);
 		}
 		
-		public void enteremail(String email_address)
+		public void enterEmail(String email_address)
 		{
 			email.sendKeys(email_address);
 		}
 		
-		public void booknow()
+		public void bookNow()
 		{
 			booknow.click();
 		}
 		
-		public void verifysuccessmessage()
+		public void verifySuccessMessage()
 		{
 			assert successmessage.isDisplayed();
 		}
