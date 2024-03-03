@@ -1,55 +1,57 @@
 package pages;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import base.baseclass;
 
-public class Homepage extends baseclass{
+public class Homepage{
 	
 	//variables
 	@FindBy(xpath = "//span[contains(@class,'DestinationSearchOpener')]")
-	private WebElement searchbox;
+	WebElement searchbox;
 	
 	@FindBy(id = "DestinationSearchInput")
-	private WebElement inputlocation;
+	WebElement inputlocation;
 	
 	@FindBy(xpath = "(//li[@data-test='DestinationList_suggestionItem'][1])[1]")
-	private WebElement clicksuggestion;
+	WebElement clicksuggestion;
 	
 	@FindBy(id = "DatePickerOpener")
-	private WebElement datepickeropener;
+	WebElement datepickeropener;
 	
 	@FindBy(xpath = "(//div[@class='Month_title__m8iWe'])[1]")
-	private WebElement verifymonth;
+	WebElement verifymonth;
 	
 	@FindBy(xpath = "(//div[contains(@class,'Month_right')])[2]")
-	private WebElement nextmonth;
+	WebElement nextmonth;
 	
 	@FindBy(xpath = "(//div[text()='26'])[1]")
-	private WebElement fromdate;
+	WebElement fromdate;
 	
 	@FindBy(xpath = "(//div[text()='1'])[2]")
-	private WebElement enddate;
+	WebElement enddate;
 	
 	@FindBy(id = "SearchHotelsButton")
-	private WebElement searchhotel;
+	WebElement searchhotel;
 	
 	@FindBy(xpath = "(//span[text()='Log in'])[1]")
-	private WebElement loginbutton;
+	WebElement loginbutton;
 	
 	@FindBy(id = "email")
-	private WebElement emaillogin;
+	WebElement emaillogin;
 	
 	@FindBy(id = "password")
-	private WebElement loginpassword;
+	WebElement loginpassword;
 	
 	@FindBy(xpath = "(//span[text()='Log in'])[4]")
-	private WebElement popuploginbutton;
+	WebElement popuploginbutton;
 	
 	
 	//constructor
-	public Homepage() 
+	WebDriver ldriver;
+	public Homepage(WebDriver driver) 
 	{
+		ldriver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	

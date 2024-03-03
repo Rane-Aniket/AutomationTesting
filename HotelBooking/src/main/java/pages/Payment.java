@@ -9,26 +9,28 @@ public class Payment {
 		
 		//variables
 		@FindBy(id = "given-name")
-		private WebElement firstname;
+		WebElement firstname;
 		
 		@FindBy(id = "family-name")
-		private WebElement lastname;
+		WebElement lastname;
 		
 		@FindBy(id = "phone")
-		private WebElement phone;
+		WebElement phone;
 		
 		@FindBy(id = "email")
-		private WebElement email;
+		WebElement email;
 		
 		@FindBy(xpath = "//span[text()='Book now']/../")
-		private WebElement booknow;
+		WebElement booknow;
 		
 		@FindBy(xpath = "//div[text()='Success']")
-		private WebElement successmessage;
+		WebElement successmessage;
 	
 	
 		//constructor
+		WebDriver ldriver;
 		public Payment(WebDriver driver) {
+			ldriver = driver;
 			PageFactory.initElements(driver, this);
 		}
 		
@@ -61,5 +63,11 @@ public class Payment {
 		public void verifySuccessMessage()
 		{
 			assert successmessage.isDisplayed();
+		}
+		
+		public void verifyBookingPage(String expected_url)
+		{
+			String found_url = ldriver.getCurrentUrl();
+			assert found_url == expected_url;
 		}
 }

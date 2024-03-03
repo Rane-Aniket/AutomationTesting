@@ -4,7 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class baseclass {
-protected static WebDriver driver;
+public static WebDriver driver;
 	
 
 	public void launchBrowser() {
