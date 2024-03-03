@@ -1,0 +1,26 @@
+package base;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class baseclass {
+protected static WebDriver driver;
+	
+
+	public void launchBrowser() throws IOException {
+		
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("www.hrs.com");
+//		Reporter.log("Lauching browser..", true);
+
+	}
+
+	public void closeBrowser() {
+		driver.quit();
+//		Reporter.log("Closing browser..", true);
+	}
+
+}

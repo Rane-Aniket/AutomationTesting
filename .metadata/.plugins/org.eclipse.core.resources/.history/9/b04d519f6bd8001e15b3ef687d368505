@@ -1,0 +1,25 @@
+package testClasses;
+
+import java.io.IOException;
+
+import org.testng.annotations.BeforeClass;
+
+import pomClasses.Homepage;
+import pomClasses.Hotelist;
+import pomClasses.Payment;
+import base.baseclass;
+
+public class testbooking 
+	{
+		Homepage home;
+		Hotelist list;
+		Payment checkout;
+		
+		@BeforeClass
+		public void launchhrs() throws IOException {
+			launchBrowser();
+			home = new Homepage(driver);
+			list = new Hotelist(driver);
+			checkout = new Payment(driver);
+		}
+	}

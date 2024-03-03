@@ -1,0 +1,55 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Payment {
+		//variables
+		@FindBy(xpath = "//input[@id='given-name']")
+		private WebElement firstname;
+		
+		@FindBy(xpath = "//input[@id='family-name']")
+		private WebElement lastname;
+		
+		@FindBy(xpath = "//input[@id='phone']")
+		private WebElement phone;
+		
+		@FindBy(xpath = "//input[@id='email']")
+		private WebElement email;
+		
+		@FindBy(xpath = "//span[text()='Book now']/../")
+		private WebElement booknow;
+	
+	
+	
+	
+	
+		//constructor
+		public Payment(WebDriver driver) {
+			PageFactory.initElements(driver, this);
+		}
+		
+		//methods
+		public void enterfirstname()
+		{
+			
+		}
+		public void enterlastname()
+		{
+			
+		}
+		public void enternumber()
+		{
+			
+		}
+		public void enteremail()
+		{
+			
+		}
+		public void booknow()
+		{
+			
+		}
+}

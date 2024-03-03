@@ -1,0 +1,13 @@
+package pomClasses;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class Homepage {
+	//variables
+	//constructor
+	public Homepage(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
+	//methods
+}

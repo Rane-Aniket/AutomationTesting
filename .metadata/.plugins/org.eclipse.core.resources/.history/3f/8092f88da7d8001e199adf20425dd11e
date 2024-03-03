@@ -1,0 +1,20 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class Payment {
+		//variables
+	
+	//input[@id='given-name']
+	//input[@id='family-name']
+	//input[@id='phone']
+	//input[@id='email']
+	//span[text()='Book now']/../
+		//constructor
+		public Payment(WebDriver driver) {
+			PageFactory.initElements(driver, this);
+		}
+		//methods
+
+}

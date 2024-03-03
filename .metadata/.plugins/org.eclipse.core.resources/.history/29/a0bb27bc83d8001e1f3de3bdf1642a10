@@ -1,0 +1,55 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Homepage {
+	//variables
+	@FindBy(xpath = "//span[contains(@class,'DestinationSearchOpener')]")
+	private WebElement searchbox;
+	
+	@FindBy(xpath = "//input[@id='DestinationSearchInput']")
+	private WebElement inputlocation;
+	
+	@FindBy(xpath = "(//li[@data-test='DestinationList_suggestionItem'][1])[1]")
+	private WebElement clicksuggestion;
+	
+	@FindBy(xpath = "//div[@id='DatePickerOpener']")
+	private WebElement datepickeropener;
+	
+	@FindBy(xpath = "(//div[@class='Month_title__m8iWe'])[1]")
+	private WebElement verifymonth;
+	
+	//constructor
+	public Homepage(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
+	//methods
+	
+	public void searchlocation() throws InterruptedException
+	{
+		Thread.sleep(20000);
+		searchbox.click();
+		Thread.sleep(4000);
+		inputlocation.sendKeys("Barcelona");
+		Thread.sleep(4000);
+		clicksuggestion.click();
+		
+	}
+	public void selectdate()
+	{
+		datepickeropener.click();
+	}
+	public void verifymonth()
+	{
+		String month = verifymonth.getText();
+		try 
+		{
+			assert month.equals("July");
+		} finally {
+			// TODO: handle finally clause
+		}
+	}
+}

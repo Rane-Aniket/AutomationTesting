@@ -1,0 +1,30 @@
+package base;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class baseclass {
+protected static WebDriver driver;
+	
+
+	public void launchBrowser() throws IOException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Aniket\\Desktop\\Driver\\chromedriver-win64\\chromedriver.exe");
+        ChromeOptions option = new ChromeOptions();
+        option.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+		WebDriver driver = new ChromeDriver(option);
+		driver.get("https://www.hrs.com/");
+		driver.manage().window().maximize();
+//		Reporter.log("Lauching browser..", true);
+
+	}
+
+	public void closeBrowser() {
+		driver.quit();
+//		Reporter.log("Closing browser..", true);
+	}
+
+}
